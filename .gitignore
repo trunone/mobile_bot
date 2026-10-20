@@ -1,0 +1,9 @@
+# Root gitignore
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+local.properties
+**/.gradle/
+**/build/

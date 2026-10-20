@@ -1,0 +1,19 @@
+[versions]
+agp = "8.3.2"
+androidx-appcompat = "1.6.1"
+material = "1.11.0"
+androidx-constraintlayout = "2.1.4"
+usb-serial = "3.8.0"
+junit = "4.13.2"
+robolectric = "4.11.1"
+
+[libraries]
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
+usb-serial-android = { group = "com.github.mik3y", name = "usb-serial-for-android", version.ref = "usb-serial" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }

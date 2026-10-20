@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Filter for CDC/ACM, FTDI, CH340, CP2102 serial devices -->
+    <usb-device vendor-id="9025" /> <!-- Arduino -->
+    <usb-device vendor-id="1027" /> <!-- FTDI -->
+    <usb-device vendor-id="6790" /> <!-- CH340 -->
+    <usb-device vendor-id="4292" /> <!-- CP2102 -->
+    <usb-device vendor-id="1155" /> <!-- STMicroelectronics -->
+    <usb-device vendor-id="11914" /> <!-- Raspberry Pi Pico -->
+</resources>

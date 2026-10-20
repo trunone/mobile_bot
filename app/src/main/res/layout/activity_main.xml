@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Balancing Robot Control Center"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+        <!-- Status Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvUsbStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USB MCU: Disconnected"
+                    android:textColor="#FF5252"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGamepadStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gamepad: Disconnected (XInput)"
+                    android:textColor="#FF9800"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tvSystemState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status: OFF"
+                    android:textColor="#BBBBBB"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <Button
+                        android:id="@+id/btnConnectUsb"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Connect USB" />
+
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/btnToggleEnable"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ENABLE ROBOT"
+                        android:backgroundTint="#4CAF50" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Sensor & Motor Live Telemetry Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telemetry (Vertical Phone)"
+                    android:textColor="#03DAC5"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPitchAngle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch Angle: 0.00°"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:paddingTop="6dp" />
+
+                <TextView
+                    android:id="@+id/tvPitchRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch Rate: 0.00 deg/s"
+                    android:textColor="#BBBBBB"
+                    android:textSize="14sp"
+                    android:paddingTop="2dp" />
+
+                <TextView
+                    android:id="@+id/tvMotorSpeeds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Motors L / R: 0 / 0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:paddingTop="6dp" />
+
+                <TextView
+                    android:id="@+id/tvDriveInputs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XInput Forward: 0.00 | Turn: 0.00"
+                    android:textColor="#BBBBBB"
+                    android:textSize="13sp"
+                    android:paddingTop="2dp" />
+
+                <Button
+                    android:id="@+id/btnCalibrateZero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Calibrate Vertical Zero Pitch" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- PID Parameters Control Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PID Tuning"
+                    android:textColor="#BB86FC"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Kp row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvKpLabel"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Kp: 35.0"
+                        android:textColor="#FFFFFF" />
+
+                    <SeekBar
+                        android:id="@+id/seekbarKp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="200"
+                        android:progress="35" />
+                </LinearLayout>
+
+                <!-- Ki row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvKiLabel"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ki: 0.0"
+                        android:textColor="#FFFFFF" />
+
+                    <SeekBar
+                        android:id="@+id/seekbarKi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="0" />
+                </LinearLayout>
+
+                <!-- Kd row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvKdLabel"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Kd: 2.5"
+                        android:textColor="#FFFFFF" />
+
+                    <SeekBar
+                        android:id="@+id/seekbarKd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="25" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
