@@ -1,5 +1,7 @@
 package com.robot.balancingrobot;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private GamepadController gamepadController;
     private UsbMcuManager usbMcuManager;
 
+    private TextView tvAppVersion;
     private TextView tvUsbStatus;
     private TextView tvGamepadStatus;
     private TextView tvSystemState;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         initializeComponents();
         setupViews();
         setupListeners();
+        displayAppVersion();
     }
 
     private void initializeComponents() {
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViews() {
+        tvAppVersion = findViewById(R.id.tvAppVersion);
         tvUsbStatus = findViewById(R.id.tvUsbStatus);
         tvGamepadStatus = findViewById(R.id.tvGamepadStatus);
         tvSystemState = findViewById(R.id.tvSystemState);
@@ -86,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
         btnCalibrateZero = findViewById(R.id.btnCalibrateZero);
 
         updatePidUiValues();
+    }
+
+    private void displayAppVersion() {
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = pInfo.versionName;
+            tvAppVersion.setText("Version: " + version);
+        } catch (PackageManager.NameNotFoundException e) {
+            tvAppVersion.setText("Version: Unknown");
+        }
     }
 
     private void setupListeners() {
